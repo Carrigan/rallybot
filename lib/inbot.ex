@@ -28,7 +28,7 @@ defmodule Inbot do
   end
 
   def handle_call(:status, _from, state) do
-    {:reply, %Inbot.Response{text: "#{inspect state}"}, state}
+    {:reply, %Inbot.Response{text: Inbot.Formatter.format_status(state)}, state}
   end
 
   def handle_call({:create, group_name, trigger}, _from, state) do
@@ -36,5 +36,15 @@ defmodule Inbot do
     next_state = Map.put(state, group_name, group)
 
     {:reply, %Inbot.Response{text: "Group created."}, next_state}
+  end
+
+  def handle_call({:set, group_name, user}, _from, state) do
+    next_state = Map.update!(state, group_name, fn group -> Inbot.Group.add(group, user) end)
+    {:reply, %Inbot.Response{text: "Added to #{group_name}."}, next_state}
+  end
+
+  def handle_call({:clear, group_name, user}, _from, state) do
+    next_state = Map.update!(state, group_name, fn group -> Inbot.Group.clear(group, user) end)
+    {:reply, %Inbot.Response{text: "Removed from #{group_name}."}, next_state}
   end
 end

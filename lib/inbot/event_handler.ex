@@ -36,6 +36,16 @@ defmodule Inbot.EventHandler do
     process_group_create(tokens, payload, state)
   end
 
+  defp _process("in", group, payload, state) do
+    response = Inbot.set_in(group, payload.data["author"])
+    respond(response.text, payload, state)
+  end
+
+  defp _process("out", group, payload, state) do
+    response = Inbot.clear_in(group, payload.data["author"])
+    respond(response.text, payload, state)
+  end
+
   defp _process(_, _, _, _), do: nil
 
   def process_group_create([name, trigger], payload, state) do
