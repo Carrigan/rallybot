@@ -1,18 +1,7 @@
 defmodule Inbot do
-  @moduledoc """
-  Documentation for Inbot.
-  """
+  use Application
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Inbot.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def start(_type, _args) do
+    Inbot.Supervisor.start_link()
   end
 end
