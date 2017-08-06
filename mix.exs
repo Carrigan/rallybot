@@ -12,7 +12,7 @@ defmodule Rallybot.Mixfile do
 
   def application() do
     [
-      applications: [:discord_ex, :websocket_client],
+      applications: [:discord_ex],
       extra_applications: [:logger],
       mod: {Rallybot.Application, []}
     ]
