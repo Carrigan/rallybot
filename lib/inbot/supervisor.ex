@@ -9,6 +9,7 @@ defmodule Inbot.Supervisor do
     token = Application.get_env(:inbot, :discord_api_token)
 
     children = [
+      worker(Inbot, []),
       worker(DiscordEx.Client, [%{token: token, handler: Inbot.EventHandler}])
     ]
 

@@ -14,7 +14,7 @@ defmodule Inbot.Mixfile do
     [
       applications: [:discord_ex, :websocket_client],
       extra_applications: [:logger],
-      mod: {Inbot, []}
+      mod: {Inbot.Application, []}
     ]
   end
 
