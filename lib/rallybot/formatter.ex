@@ -1,4 +1,4 @@
-defmodule Inbot.Formatter do
+defmodule Rallybot.Formatter do
   def format_status(status) when status == %{} do
     "No groups found."
   end
@@ -8,6 +8,6 @@ defmodule Inbot.Formatter do
   end
 
   def format_entry({group_name, group_struct}) do
-    "**#{group_name}:** #{Inbot.Group.format(group_struct)}\n"
+    "**#{group_name}:** #{Rallybot.Group.format(group_struct)}\n"
   end
 end

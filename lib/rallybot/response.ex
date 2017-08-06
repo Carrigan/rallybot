@@ -1,3 +1,3 @@
-defmodule Inbot.Response do
+defmodule Rallybot.Response do
   defstruct text: "", alert: []
 end

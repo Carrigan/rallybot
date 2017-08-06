@@ -1,8 +1,8 @@
-defmodule Inbot.Mixfile do
+defmodule Rallybot.Mixfile do
   use Mix.Project
 
   def project() do
-    [app: :inbot,
+    [app: :rallybot,
      version: "0.1.0",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
@@ -14,7 +14,7 @@ defmodule Inbot.Mixfile do
     [
       applications: [:discord_ex, :websocket_client],
       extra_applications: [:logger],
-      mod: {Inbot.Application, []}
+      mod: {Rallybot.Application, []}
     ]
   end
 

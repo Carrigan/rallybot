@@ -1,6 +1,6 @@
-defmodule InbotTest do
+defmodule RallybotTest do
   use ExUnit.Case
-  doctest Inbot
+  doctest Rallybot
 
   test "the truth" do
     assert 1 + 1 == 2
