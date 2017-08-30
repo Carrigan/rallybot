@@ -63,7 +63,7 @@ defmodule Rallybot do
   end
 
   def handle_group_add(_, group_name, _, state) do
-    {:reply, %Rallybot.Response{text: "Group '#{group_name}' not found."}, state}
+    {:reply, %Rallybot.Response{text: "Group '#{group_name}' not found. Use $group <name> <size> to create a new one!"}, state}
   end
 
   def handle_group_clear({:ok, group}, group_name, user, state) do
